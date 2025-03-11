@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.10)
+project(server)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+set(ENET_DIR ${CMAKE_SOURCE_DIR}/../../lib/enet)
+include_directories(${ENET_DIR}/include)
+link_directories(${ENET_DIR}/lib)
+
+add_executable(server server.cpp)
+target_link_libraries(server PRIVATE
+    ${ENET_DIR}/lib/libenet.a  # 使用完整路徑（如果自動搜尋不成功）
+    ws2_32                    # Windows 套接字庫
+    winmm                     # Windows 多媒體庫（ENet 需要的）
+)
+
+add_executable(MatchMaking MatchMaking.cpp)
+target_link_libraries(MatchMaking PRIVATE
+    ${ENET_DIR}/lib/libenet.a  # 使用完整路徑（如果自動搜尋不成功）
+    ws2_32                    # Windows 套接字庫
+    winmm                     # Windows 多媒體庫（ENet 需要的）
+)

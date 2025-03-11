@@ -1,0 +1,3 @@
+D:/vscode_C++/oop_game/build/CMakeFiles/oop_game.dir
+D:/vscode_C++/oop_game/build/CMakeFiles/edit_cache.dir
+D:/vscode_C++/oop_game/build/CMakeFiles/rebuild_cache.dir

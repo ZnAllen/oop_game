@@ -1,0 +1,1 @@
+  -LD:/vscode_C++/oop_game/src/server/../../lib/enet/lib  D:/vscode_C++/oop_game/src/server/../../lib/enet/lib/libenet.a -lws2_32 -lwinmm -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
