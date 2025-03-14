@@ -2,6 +2,7 @@
 #include "Map.h"
 #include "GameManager.h"
 #include "Unit.h"
+#include "raygui.h"
 #include <iostream>
 
 int main() {
@@ -11,7 +12,6 @@ int main() {
 
     InitWindow(screenWidth + 220, screenHeight, "Drag to Set Waypoints");
     SetTargetFPS(60);
-
     Map gameMap(screenWidth / tileSize, screenHeight / tileSize, tileSize);
     //Unit playerUnit(5, 5, 2.0f);
 
