@@ -9,7 +9,7 @@ int main() {
     const int screenHeight = 600;
     const int tileSize = 40;
 
-    InitWindow(screenWidth, screenHeight, "Drag to Set Waypoints");
+    InitWindow(screenWidth + 220, screenHeight, "Drag to Set Waypoints");
     SetTargetFPS(60);
 
     Map gameMap(screenWidth / tileSize, screenHeight / tileSize, tileSize);
@@ -30,9 +30,8 @@ int main() {
 
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
             gameManager.HandleClick(mousePos.x,mousePos.y,tileSize);
-            if ((int)mousePos.x != (int)lastMousePos.x || (int)mousePos.y != (int)lastMousePos.y) {
+            if (((int)mousePos.x != (int)lastMousePos.x || (int)mousePos.y != (int)lastMousePos.y) && gameManager.selectedAction == Action::MOVE) {
                 if (gameMap.IsWalkable(gridX, gridY, false)) {
-                    //playerUnit.AddWaypoint(gridX, gridY);
                     gameManager.AddWaypoint(gridX, gridY);
                     lastMousePos = mousePos;
                 }
@@ -52,7 +51,7 @@ int main() {
         }
 
         gameManager.Update(gameMap);
-        gameManager.CheckForCombat();
+        //gameManager.CheckForCombat();
 
         BeginDrawing();
         ClearBackground(RAYWHITE);

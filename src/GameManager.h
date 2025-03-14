@@ -5,10 +5,12 @@
 #include "Map.h"
 #include <vector>
 
+enum class Action { NONE, MOVE, ATTACK };
 class GameManager {
 public:
     std::vector<Unit> units;
     int selectedUnitIndex;
+    Action selectedAction;  // 當前選擇的行動
 
     GameManager();
     void AddWaypoint(int newX, int newY);
@@ -19,6 +21,7 @@ public:
     void Update(Map& map);
     void Draw(int tileSize);
     void CheckForCombat();
+    void DrawUI();  // 新增 UI 繪製函數
 };
 
 #endif
