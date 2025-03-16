@@ -19,9 +19,9 @@ public:
     void AddUnit(int x, int y, float speed, bool enemy);
     void HandleClick(int mouseX, int mouseY, int tileSize);
     void Update(Map& map);
-    void Draw(int tileSize);
+    void Draw(int tileSize, Map& map);
     void CheckForCombat();
-    void DrawUI();  // 新增 UI 繪製函數
+    void DrawUI(Map& map);  // 新增 UI 繪製函數
 };
 
 #endif

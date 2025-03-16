@@ -56,7 +56,7 @@ int main() {
         BeginDrawing();
         ClearBackground(RAYWHITE);
         gameMap.Draw();
-        gameManager.Draw(tileSize);
+        gameManager.Draw(tileSize, gameMap);
         EndDrawing();
     }
 

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <algorithm>
 #include "raylib.h"
+#define RAYGUI_IMPLEMENTATION
+#include  "raygui.h"
 
 GameManager::GameManager() : selectedUnitIndex(-1), selectedAction(Action::NONE){}
 
@@ -14,17 +16,17 @@ void GameManager::HandleClick(int mouseX, int mouseY, int tileSize) {
     int gridX = mouseX / tileSize;
     int gridY = mouseY / tileSize;
 
-    int panelWidth = 200;
-    int panelX = GetScreenWidth() - panelWidth - 10;
-    int panelY = 10;
-    int buttonY = panelY + 100;
+    float panelWidth = 200;
+    float panelX = GetScreenWidth() - panelWidth - 10;
+    float panelY = 10;
+    float buttonY = panelY + 100;
 
     // 偵測 UI 按鈕點擊
-    if (mouseX >= panelX + 10 && mouseX <= panelX + 90 && mouseY >= buttonY && mouseY <= buttonY + 30) {
+    if (GuiButton({GetScreenWidth() - panelWidth + 10, 0, 80, 30}, "Click Me")) {
         selectedAction = Action::MOVE;
         return;
     }
-    if (mouseX >= panelX + 110 && mouseX <= panelX + 190 && mouseY >= buttonY && mouseY <= buttonY + 30) {
+    if (GuiButton({GetScreenWidth() - panelWidth + 110, 0, 80, 30}, "Click Me")) {
         selectedAction = Action::ATTACK;
         return;
     }
@@ -62,11 +64,11 @@ void GameManager::Update(Map& map) {
     }
 }
 
-void GameManager::Draw(int tileSize) {
+void GameManager::Draw(int tileSize, Map& map) {
     for (auto& unit : units) {
         unit.Draw(tileSize);
     }
-    DrawUI(); // 顯示 UI 面板
+    DrawUI(map); // 顯示 UI 面板
 }
 
 void GameManager::AddWaypoint(int newX, int newY){
@@ -107,15 +109,19 @@ void GameManager::CheckForCombat() {
     }
 }
 
-void GameManager::DrawUI() {
+void GameManager::DrawUI(Map& map) {
     if (selectedUnitIndex < 0 || selectedUnitIndex >= (int)units.size()) return;
 
     Unit& unit = units[selectedUnitIndex];
 
     int panelWidth = 220;
-    int panelHeight = 150;
+    int panelHeight = 200;
     int panelX = GetScreenWidth() - panelWidth;  // UI 放最右邊
     int panelY = 0;
+
+    float selectedSoldiers = 1;  // 預設最少出征 1 名士兵
+    float maxSoldiers = 10;      // 這裡可以用玩家擁有的士兵數量來更新
+
 
     // 繪製背景面板
     DrawRectangle(panelX, panelY, panelWidth, panelHeight, DARKGRAY);
@@ -127,16 +133,36 @@ void GameManager::DrawUI() {
     DrawText(TextFormat("HP: %d", unit.hp), panelX + 10, panelY + 50, 16, WHITE);
     DrawText(TextFormat("Moving: %s", unit.moving ? "Yes" : "No"), panelX + 10, panelY + 70, 16, WHITE);
 
-    // 按鈕區域
-    int buttonY = panelY + 100;
-    
-    // 移動按鈕
-    DrawRectangle(panelX + 10, buttonY, 80, 30, selectedAction == Action::MOVE ? LIGHTGRAY : GRAY);
-    DrawRectangleLines(panelX + 10, buttonY, 80, 30, WHITE);
-    DrawText("Move", panelX + 30, buttonY + 5, 16, WHITE);
 
-    // 攻擊按鈕
-    DrawRectangle(panelX + 110, buttonY, 80, 30, selectedAction == Action::ATTACK ? LIGHTGRAY : GRAY);
-    DrawRectangleLines(panelX + 110, buttonY, 80, 30, WHITE);
-    DrawText("Attack", panelX + 130, buttonY + 5, 16, WHITE);
+    DrawText("Soldiers:", panelX + 10, panelY + 70, 16, WHITE);
+    
+    // 繪製滑動條
+    selectedSoldiers = GuiSliderBar(
+        (Rectangle){panelX + 10, panelY + 70, 180, 20}, // 滑動條位置
+        NULL, NULL, NULL, selectedSoldiers, 100 // 滑動範圍
+    );
+
+    // 顯示當前選擇的數量
+    char numText[10];
+    sprintf(numText, "%d", selectedSoldiers);
+    DrawText(numText, panelX + 160, panelY + 50, 16, WHITE);
+
+    // 繪製出征按鈕
+    if (GuiButton((Rectangle){panelX + 10, panelY + 110, 180, 30}, "Deploy")) {
+        ConfirmPath(map);  // 按下後執行出征邏輯
+    }
+
+
+    // 按鈕區域
+    int buttonY = panelY + 160;
+
+    // 移動按鈕（使用 Raygui）
+    if (GuiButton((Rectangle){panelX + 10, buttonY, 80, 30}, "Move")) {
+        selectedAction = Action::MOVE;
+    }
+
+    // 攻擊按鈕（使用 Raygui）
+    if (GuiButton((Rectangle){panelX + 110, buttonY, 80, 30}, "Attack")) {
+        selectedAction = Action::ATTACK;
+    }
 }
