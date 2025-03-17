@@ -4,8 +4,8 @@
 
 Unit::Unit(int startX, int startY, float speed, bool enemy) 
     : x(startX), y(startY), step_x(startX), step_y(startY), moveSpeed(speed), isEnemy(enemy), 
-      hp(100), attackRange(1), attackDamage(20), isSelected(false), moving(false), pathIndex(0), nextStepTimer(0), spendTime(2), attackCooldownTime(2)
-      {}
+      hp(100), attackRange(1), attackDamage(20), isSelected(false), moving(false), pathIndex(0), nextStepTimer(0), spendTime(2), attackCooldownTime(2),
+      action(Action::NONE){}
 
 void Unit::AddWaypoint(int newX, int newY) {
     if (waypoints.empty() || waypoints.back() != std::make_pair(newX, newY)) {

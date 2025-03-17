@@ -113,6 +113,15 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/tr1/poly_laguerre.tcc \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/tr1/riemann_zeta.tcc \
  D:\vscode_C++\oop_game\src\raygui.h \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdio.h \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/swprintf.inl \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cstdlib \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/string.h \
+ C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/math.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/iostream \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/ostream \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/ios \
@@ -121,10 +130,7 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/postypes.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cwchar \
  C:/TDM-GCC-64/x86_64-w64-mingw32/include/wchar.h \
- C:/TDM-GCC-64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
- C:/TDM-GCC-64/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/TDM-GCC-64/x86_64-w64-mingw32/include/_mingw_stat64.h \
- C:/TDM-GCC-64/x86_64-w64-mingw32/include/swprintf.inl \
  C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/char_traits.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cstdint \
@@ -134,8 +140,6 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/clocale \
  C:/TDM-GCC-64/x86_64-w64-mingw32/include/locale.h \
- C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdio.h \
- C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cctype \
  C:/TDM-GCC-64/x86_64-w64-mingw32/include/ctype.h \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/ios_base.h \
@@ -162,7 +166,6 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/string_view \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/string_view.tcc \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/ext/string_conversions.h \
- C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cstdlib \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cstdio \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/cerrno \
  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/charconv.h \

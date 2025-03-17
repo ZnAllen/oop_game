@@ -2,6 +2,7 @@
 #include "Map.h"
 #include "GameManager.h"
 #include "Unit.h"
+#define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #include <iostream>
 
@@ -30,7 +31,7 @@ int main() {
 
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
             gameManager.HandleClick(mousePos.x,mousePos.y,tileSize);
-            if (((int)mousePos.x != (int)lastMousePos.x || (int)mousePos.y != (int)lastMousePos.y) && gameManager.selectedAction == Action::MOVE) {
+            if (((int)mousePos.x != (int)lastMousePos.x || (int)mousePos.y != (int)lastMousePos.y) && gameManager.units[gameManager.selectedUnitIndex].action == Action::MOVE) {
                 if (gameMap.IsWalkable(gridX, gridY, false)) {
                     gameManager.AddWaypoint(gridX, gridY);
                     lastMousePos = mousePos;

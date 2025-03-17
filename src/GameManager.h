@@ -5,12 +5,13 @@
 #include "Map.h"
 #include <vector>
 
-enum class Action { NONE, MOVE, ATTACK };
 class GameManager {
 public:
     std::vector<Unit> units;
     int selectedUnitIndex;
-    Action selectedAction;  // 當前選擇的行動
+    int Soldiers;
+    float selectedSoldiers;
+    float maxSoldiers;   
 
     GameManager();
     void AddWaypoint(int newX, int newY);

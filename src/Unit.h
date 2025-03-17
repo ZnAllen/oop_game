@@ -6,11 +6,13 @@
 #include "Pathfinding.h"
 #include <vector>
 
+enum class Action { NONE, MOVE, ATTACK };
 class Unit {
     public:
         int x, y;
         float step_x, step_y;
         Color unitColor = BLUE;
+        Action action; //紀錄當前動作
         float moveSpeed;
         bool moving;
         bool isSelected;

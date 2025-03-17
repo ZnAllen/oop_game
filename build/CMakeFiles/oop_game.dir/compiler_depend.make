@@ -107,7 +107,6 @@ CMakeFiles/oop_game.dir/src/GameManager.cpp.obj: D:/vscode_C++/oop_game/src/Game
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/iostream \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/istream \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/limits \
-  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/math.h \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/new \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/optional \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/ostream \
@@ -178,7 +177,6 @@ CMakeFiles/oop_game.dir/src/GameManager.cpp.obj: D:/vscode_C++/oop_game/src/Game
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
-  C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/signal.h \
@@ -187,7 +185,6 @@ CMakeFiles/oop_game.dir/src/GameManager.cpp.obj: D:/vscode_C++/oop_game/src/Game
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdint.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdio.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdlib.h \
-  C:/TDM-GCC-64/x86_64-w64-mingw32/include/string.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sys/types.h \
@@ -547,6 +544,7 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: D:/vscode_C++/oop_game/src/main.cpp \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/iostream \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/istream \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/limits \
+  C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/math.h \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/new \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/optional \
   C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/ostream \
@@ -615,6 +613,7 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: D:/vscode_C++/oop_game/src/main.cpp \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/signal.h \
@@ -623,6 +622,7 @@ CMakeFiles/oop_game.dir/src/main.cpp.obj: D:/vscode_C++/oop_game/src/main.cpp \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdint.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdio.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/TDM-GCC-64/x86_64-w64-mingw32/include/string.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/TDM-GCC-64/x86_64-w64-mingw32/include/sys/types.h \
@@ -1012,8 +1012,6 @@ C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/utility:
 
 C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/limits:
 
-C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/math.h:
-
 C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/optional:
 
 C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/ostream:
@@ -1130,8 +1128,6 @@ C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 
 C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
 
-C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/string_s.h:
-
 C:/TDM-GCC-64/x86_64-w64-mingw32/include/signal.h:
 
 C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdarg.h:
@@ -1139,8 +1135,6 @@ C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdarg.h:
 C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdint.h:
 
 C:/TDM-GCC-64/x86_64-w64-mingw32/include/stdio.h:
-
-C:/TDM-GCC-64/x86_64-w64-mingw32/include/string.h:
 
 C:/TDM-GCC-64/x86_64-w64-mingw32/include/swprintf.inl:
 
@@ -1165,6 +1159,12 @@ D:/vscode_C++/oop_game/src/Map.cpp:
 D:/vscode_C++/oop_game/src/Unit.cpp:
 
 D:/vscode_C++/oop_game/src/main.cpp:
+
+C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/math.h:
+
+C:/TDM-GCC-64/x86_64-w64-mingw32/include/sec_api/string_s.h:
+
+C:/TDM-GCC-64/x86_64-w64-mingw32/include/string.h:
 
 D:/vscode_C++/oop_game/src/pathfinding.cpp:
 
