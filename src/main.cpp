@@ -17,10 +17,10 @@ int main() {
     //Unit playerUnit(5, 5, 2.0f);
 
     GameManager gameManager;
-    gameManager.AddUnit(2, 2, 10.0f, false);
-    gameManager.AddUnit(5, 5, 10.0f, false);
-    gameManager.AddUnit(4, 2, 10.0f, true);  // 敵方
-    gameManager.AddUnit(7, 5, 10.0f, true);  // 敵方
+    gameManager.AddUnit(2, 2, 10.0f, false, 100);
+    gameManager.AddUnit(5, 5, 10.0f, false, 100);
+    gameManager.AddUnit(4, 2, 10.0f, true, 100);  // 敵方
+    gameManager.AddUnit(7, 5, 10.0f, true, 100);  // 敵方
 
     Vector2 lastMousePos = {-1, -1};
 
@@ -45,10 +45,6 @@ int main() {
 
         if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)) {
             gameManager.ClearPath(); // 清除路線
-        }
-
-        if (IsKeyPressed(KEY_SPACE)) {
-            gameManager.ConfirmPath(gameMap); // 確認路線並開始移動
         }
 
         gameManager.Update(gameMap);

@@ -6,8 +6,8 @@
 
 GameManager::GameManager() : selectedUnitIndex(-1), selectedSoldiers(1), maxSoldiers(1000){}
 
-void GameManager::AddUnit(int x, int y, float speed, bool enemy) {
-    units.emplace_back(x, y, speed, enemy);
+void GameManager::AddUnit(int x, int y, float speed, bool enemy, int soldier) {
+    units.emplace_back(x, y, speed, enemy, soldier);
 }
 
 void GameManager::HandleClick(int mouseX, int mouseY, int tileSize) {
@@ -36,6 +36,7 @@ void GameManager::HandleClick(int mouseX, int mouseY, int tileSize) {
             selectedUnitIndex = i;
             units[selectedUnitIndex].unitColor = RED;
             units[selectedUnitIndex].isSelected = true;
+            maxSoldiers = units[selectedUnitIndex].SoldierNumber;
             return;
         }
     }
@@ -57,6 +58,8 @@ void GameManager::Update(Map& map) {
         }
     }
     units.erase(std::remove_if(units.begin(), units.end(), [](const Unit& u) { return u.hp <= 0; }), units.end());
+    units.erase(std::remove_if(units.begin(), units.end(), [](const Unit& u) { return u.SoldierNumber <= 0; }), units.end());
+    merge();
     for(int i = 0; i < units.size(); i++){
         if(units[i].isSelected) selectedUnitIndex = i;
     }
@@ -125,7 +128,7 @@ void GameManager::DrawUI(Map& map) {
     // 顯示單位資訊
     DrawText("Unit Info", panelX + 10, panelY + 10, 20, WHITE);
     DrawText(TextFormat("X: %d, Y: %d", unit.x, unit.y), panelX + 10, panelY + 30, 16, WHITE);
-    DrawText(TextFormat("HP: %d", unit.hp), panelX + 10, panelY + 50, 16, WHITE);
+    DrawText(TextFormat("HP: %d", unit.SoldierNumber), panelX + 10, panelY + 50, 16, WHITE);
     DrawText(TextFormat("Moving: %s", unit.moving ? "Yes" : "No"), panelX + 10, panelY + 70, 16, WHITE);
 
 
@@ -146,7 +149,7 @@ void GameManager::DrawUI(Map& map) {
 
     // 繪製出征按鈕
     if (GuiButton((Rectangle){panelX + 10, panelY + 110, 180, 30}, "Deploy")) {
-        ConfirmPath(map);  // 按下後執行出征邏輯
+        deploy(map);  // 按下後執行出征邏輯
     }
 
 
@@ -161,5 +164,24 @@ void GameManager::DrawUI(Map& map) {
     // 攻擊按鈕（使用 Raygui）
     if (GuiButton((Rectangle){panelX + 110, buttonY, 80, 30}, "Attack")) {
         units[selectedUnitIndex].action = Action::ATTACK;
+    }
+}
+
+void GameManager::deploy(Map& map){
+    if(selectedUnitIndex >= 0 && selectedUnitIndex < (int)units.size()) units[selectedUnitIndex].SoldierNumber -= (int)selectedSoldiers;
+    AddUnit(units[selectedUnitIndex].x, units[selectedUnitIndex].y, 10.0f, false, (int)selectedSoldiers);
+    units.back().waypoints = units[selectedUnitIndex].waypoints;
+    units[selectedUnitIndex].waypoints.clear();
+    units.back().ConfirmPath(map);
+}
+
+void GameManager::merge(){
+    for(int i = 0; i < units.size(); i++){
+        for(int j = 0; j < units.size(); j++){
+            if(i != j && units[i].x == units[j].x && units[i].y == units[j].y && !units[i].moving && !units[j].moving && units[i].isEnemy == units[j].isEnemy){
+                units[i].SoldierNumber += units[j].SoldierNumber;
+                units[j].SoldierNumber = 0;
+            }
+        }
     }
 }

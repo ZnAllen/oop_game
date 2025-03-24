@@ -10,6 +10,7 @@ enum class Action { NONE, MOVE, ATTACK };
 class Unit {
     public:
         int x, y;
+        int SoldierNumber;
         float step_x, step_y;
         Color unitColor = BLUE;
         Action action; //紀錄當前動作
@@ -28,7 +29,7 @@ class Unit {
         std::vector<std::vector<std::pair<int, int>>> paths;
         int pathIndex;
     
-        Unit(int startX, int startY, float speed,bool enemy);
+        Unit(int startX, int startY, float speed,bool enemy, int soldier);
         void AddWaypoint(int newX, int newY);
         void ConfirmPath(Map& map);
         void ClearPath();
