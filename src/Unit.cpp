@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cstdio>
 
-Unit::Unit(int startX, int startY, float speed, bool enemy, int soldier) 
-    : x(startX), y(startY), step_x(startX), step_y(startY), moveSpeed(speed), isEnemy(enemy), 
+Unit::Unit(int startX, int startY, float speed, int soldier) 
+    : x(startX), y(startY), step_x(startX), step_y(startY), moveSpeed(speed), 
       hp(100), attackRange(1), attackDamage(20), isSelected(false), moving(false), pathIndex(0), nextStepTimer(0), spendTime(2), attackCooldownTime(2),
       action(Action::NONE), SoldierNumber(soldier){}
 

@@ -17,10 +17,10 @@ int main() {
     //Unit playerUnit(5, 5, 2.0f);
 
     GameManager gameManager;
-    gameManager.AddUnit(2, 2, 10.0f, false, 100);
-    gameManager.AddUnit(5, 5, 10.0f, false, 100);
-    gameManager.AddUnit(4, 2, 10.0f, true, 100);  // 敵方
-    gameManager.AddUnit(7, 5, 10.0f, true, 100);  // 敵方
+    gameManager.AddUnit(2, 2, 10.0f, 100);
+    gameManager.AddUnit(5, 5, 10.0f, 100);
+    gameManager.AddEnemy(2, 4, 10.0f, 100);
+    gameManager.AddEnemy(5, 3, 10.0f, 100);
 
     Vector2 lastMousePos = {-1, -1};
 

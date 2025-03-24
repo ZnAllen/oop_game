@@ -6,8 +6,11 @@
 
 GameManager::GameManager() : selectedUnitIndex(-1), selectedSoldiers(1), maxSoldiers(1000){}
 
-void GameManager::AddUnit(int x, int y, float speed, bool enemy, int soldier) {
-    units.emplace_back(x, y, speed, enemy, soldier);
+void GameManager::AddUnit(int x, int y, float speed, int soldier) {
+    units.emplace_back(x, y, speed, soldier);
+}
+void GameManager::AddEnemy(int x, int y, float speed, int soldier){
+    unitsEnemy.emplace_back(x, y, speed, soldier);
 }
 
 void GameManager::HandleClick(int mouseX, int mouseY, int tileSize) {
@@ -68,6 +71,9 @@ void GameManager::Update(Map& map) {
 void GameManager::Draw(int tileSize, Map& map) {
     for (auto& unit : units) {
         unit.Draw(tileSize);
+        for(auto& Enemy : unitsEnemy){
+            if(abs(unit.x - Enemy.x) <= 1 && abs(unit.y - Enemy.y) <= 1) Enemy.Draw(tileSize);
+        }
     }
     DrawUI(map); // 顯示 UI 面板
 }
@@ -85,28 +91,6 @@ void GameManager::ClearPath(){
 void GameManager::ConfirmPath(Map& map){
     if(!units[selectedUnitIndex].moving){
         units[selectedUnitIndex].ConfirmPath(map);
-    }
-}
-
-void GameManager::CheckForCombat() {
-    for (auto& attacker : units) {
-        // 先減少 attackTimer，每幀只減少一次
-        if (attacker.attackTimer > 0) {
-            attacker.attackTimer -= GetFrameTime();
-            continue;  // **如果還在冷卻，直接跳過攻擊檢查**
-        }
-
-        for (auto& target : units) {
-            if (target.isEnemy != attacker.isEnemy) {
-                int dx = std::abs(target.x - attacker.x);
-                int dy = std::abs(target.y - attacker.y);
-                if (dx + dy <= attacker.attackRange) {
-                    attacker.Attack(target);
-                    attacker.attackTimer = attacker.attackCooldownTime;
-                    break;  // **確保每次攻擊後，不再繼續檢查其他敵人**
-                }
-            }
-        }
     }
 }
 
@@ -169,7 +153,7 @@ void GameManager::DrawUI(Map& map) {
 
 void GameManager::deploy(Map& map){
     if(selectedUnitIndex >= 0 && selectedUnitIndex < (int)units.size()) units[selectedUnitIndex].SoldierNumber -= (int)selectedSoldiers;
-    AddUnit(units[selectedUnitIndex].x, units[selectedUnitIndex].y, 10.0f, false, (int)selectedSoldiers);
+    AddUnit(units[selectedUnitIndex].x, units[selectedUnitIndex].y, 10.0f, (int)selectedSoldiers);
     units.back().waypoints = units[selectedUnitIndex].waypoints;
     units[selectedUnitIndex].waypoints.clear();
     units.back().ConfirmPath(map);
@@ -178,7 +162,7 @@ void GameManager::deploy(Map& map){
 void GameManager::merge(){
     for(int i = 0; i < units.size(); i++){
         for(int j = 0; j < units.size(); j++){
-            if(i != j && units[i].x == units[j].x && units[i].y == units[j].y && !units[i].moving && !units[j].moving && units[i].isEnemy == units[j].isEnemy){
+            if(i != j && units[i].x == units[j].x && units[i].y == units[j].y && !units[i].moving && !units[j].moving){
                 units[i].SoldierNumber += units[j].SoldierNumber;
                 units[j].SoldierNumber = 0;
             }

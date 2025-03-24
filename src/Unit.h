@@ -17,7 +17,6 @@ class Unit {
         float moveSpeed;
         bool moving;
         bool isSelected;
-        bool isEnemy; // 是否是敵人
         int hp; // 生命值
         int attackRange; // 攻擊範圍（單位：格）
         int attackDamage; // 攻擊力
@@ -29,7 +28,7 @@ class Unit {
         std::vector<std::vector<std::pair<int, int>>> paths;
         int pathIndex;
     
-        Unit(int startX, int startY, float speed,bool enemy, int soldier);
+        Unit(int startX, int startY, float speed, int soldier);
         void AddWaypoint(int newX, int newY);
         void ConfirmPath(Map& map);
         void ClearPath();
